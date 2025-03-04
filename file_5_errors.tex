@@ -1,0 +1,222 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+
+\thispagestyle{empty}
+\begin{document}
+\section{Bisection Method}	
+	
+\subsection{Introduction}
+
+The bisection method is a simple and effective numerical technique for finding approximate solutions to equations of the form \( f(x) = 0 \). This method relies on the Intermediate Value Theorem and requires the function to be continuous over the given interval.
+
+
+\subsection{Theory}
+
+\subsubsection{Intermediate Value Theorem}
+
+If a function \( f(x) \) is continuous on the interval \([a, b]\) and \( f(a) \cdot f(b) < 0 \), then there is at least one point \( c \) in the interval \((a, b)\) such that \( f(c) = 0 \).
+
+\subsubsection{Root Interval
+
+A root interval is an interval \([a, b]\) on the real number line where a continuous function \( f(x) \) changes sign, indicating the presence of at least one root (zero) of the function within that interval. Mathematically, this is expressed as:
+\[
+f(a) \cdot f(b) < 0
+
+
+This condition ensures that there is at least one point \( c \) in the interval \((a, b)\) such that \( f(c) = 0 \), according to the Intermediate Value Theorem.
+
+\textbf{Key Points about Root Intervals}
+
+\textbf{Continuity:} The function \( f(x) \) must be continuous on the interval \([a, b]\). Discontinuities can invalidate the presence of a root within the interval.
+
+\textbf{Sign Change:} The product \( f(a) \cdot f(b) \) must be negative, indicating that the function values at \( a \) and \( b \) have opposite signs. This sign change is crucial for the existence of a root within the interval.
+
+\textbf{Multiple Roots:} A root interval may contain more than one root. The bisection method will find one root, but additional intervals may need to be tested to locate other roots.
+
+\textbf{Example}
+
+Consider the function \( f(x) = x^3 - x - 2 \). To find a root interval, we evaluate the function at different points:
+\( f(1) = 1^3 - 1 - 2 = -2 \)
+\( f(2) = 2^3 - 2 - 2 = 4 \)
+
+Since \( f(1) \cdot f(2) < 0 \), the interval \([1, 2]\) is a root interval for the function \( f(x) \). This means there is at least one root of  \( f(x\) within the interval \([1, 2]\).
+
+
+\textbf{Practice Problems: Root Intervals}
+
+Problem 1
+
+Determine a root interval for the function \( f(x) = x^2 - 5x + 6 \).
+
+Problem 2
+
+Find a root interval for the function \( f(x) = \sin(x) - 0.5 \) in the interval \([0, 2\pi]\).
+
+Problem 3
+
+Identify a root interval for the function \( f(x) = e^x - 3 \) in the interval \([0, 2]\).
+
+Problem 4
+
+Determine a root interval for the function \( f(x) = \ln(x) - 2 \) in the interval \([1, 5]\).
+
+Problem 5
+
+Find a root interval for the function \( f(x) = x^3 - 4x + 1 \) in the interval \([-2, 2]\).
+
+Problem 6
+
+Identify a root interval for the function \( f(x) = \cos(x) - x \) in the interval \([0, 1]\).
+
+Problem 7
+
+Determine a root interval for the function \( f(x) = x^2 - 2 \) in the interval \([0, 2]\).
+
+Problem 8
+
+Find a root interval for the function \( f(x) = x^4 - 16 \) in the interval \([1, 3]\).
+
+Problem 9
+
+Identify a root interval for the function \( f(x) = \tan(x) - x \) in the interval \([0, \pi/2]\).
+
+Problem 10
+
+Determine a root interval for the function \( f(x) = x^3 - 3x + 2 \) in the interval \([-2, 2]\).
+
+
+
+\subsubsection{Steps of the Bisection Method}
+
+\textbf{Choose Initial Interval:} Select an interval \([a, b]\) such that \( f(a) \cdot f(b) < 0 \).
+
+\textbf{Calculate Midpoint: }Compute the midpoint \( c \) of the interval:
+
+\begin{align}
+$x_n = \frac{a + b}{2}$
+\]
+\end{align}
+
+\textbf{Check Sign:} Evaluate the function at the midpoint \( c \):
+
+If \( f(x_n) = 0 \), then \( x_n \) is the root.
+
+If \( f(a) \cdot f(x_n) < 0 \), then the root lies in the interval \([a, x_n]\). Set \( b = x_n \).
+
+If \( f(b) \cdot f(x_n) < 0 \), then the root lies in the interval \([c, b]\). Set \( a = x_n \).
+
+\textbf{Iterate:} Repeat the process until the interval \([a, b]\) is sufficiently small or \( |f(x_n)| \) is less than a predetermined tolerance level.
+
+\subsubsection{Estimating the Number of Iterations}
+
+To achieve a desired accuracy \( \epsilon \), the number of iterations \( n \) required can be estimated using the formula:
+\[
+n \geq \log_2\left(\frac{b - a}{2\epsilon}\right) = \frac{\log\left(\frac{b - a}{2\epsilon}\right)}{\log(2)} 
+\]
+
+\textbf{Proof}
+
+To determine the number of iterations \( n \) required for the bisection method to achieve a desired accuracy \( \epsilon \), we use the following steps:
+
+Initial Interval: Start with an interval \([a, b]\) where \( f(a) \cdot f(b) < 0 \). The length of this interval is \( L_0 = b_0 - a_0 \).
+
+Interval Halving: At each iteration, the interval is halved. 
+
+After the first iteration, the interval length is:
+\[
+L_1 = \frac{L_0}{2}
+\]
+After the second iteration, the interval length is:
+\[
+L_2 = \frac{L_1}{2} = \frac{L_0}{2^2}
+\]
+After \( n \) iterations, the interval length is:
+\[
+b_n-a_n = L_n =   \frac{L_0}{2^n} = \left(\dfrac{1}{2}\right)^n (b_0 - a_0)
+\]
+Desired Accuracy: We want the interval length \( L_n \) to be less than or equal to the desired accuracy \( \epsilon \):
+\[
+|x^* - x_n| \leq \dfrac{1}{2}(b_n-a_n) = \dfrac{1}{2}\left(\dfrac{1}{2}\right)^n (b_0 - a_0) = \left(\dfrac{1}{2}\right)^{n+1} (b_0 - a_0)
+\]
+Final Formula:
+\[
+n \geq \log_2\left(\frac{b - a}{2\epsilon}\right)
+\]
+This formula tells us the minimum number of iterations \( n \) required to reduce the interval length to within the desired accuracy \( \epsilon \).
+
+\subsubsection{Example}
+
+Example 1
+
+Find an approximate root of the equation \( f(x) = x^3 - x - 2 \) in the interval \([1, 2]\).
+
+Choose Initial Interval: \( a = 1 \), \( b = 2 \)
+\[
+f(1) = -2, \quad f(2) = 4
+\]
+
+Calculate Midpoint: \( c = \frac{1 + 2}{2} = 1.5 \)
+
+Check Sign: \( f(1.5) = -0.125 \)
+
+Since \( f(1) \cdot f(1.5) < 0 \), set \( b = 1.5 \).
+
+Iterate: Continue the process with the new interval \([1, 1.5]\).
+
+
+
+6. Practice Problems
+
+Problem 1
+
+Use the bisection method to find an approximate root of the equation \( f(x) = \cos(x) - x \) in the interval \([0, 1]\) with an accuracy of \( \epsilon = 0.01 \).
+
+Problem 2
+
+Apply the bisection method to find the root of the equation \( f(x) = x^2 - 4 \) in the interval \([1, 3]\) with an accuracy of \( \epsilon = 0.001 \).
+
+Problem 3
+
+Find the root of the equation \( f(x) = e^x - 3x \) using the bisection method in the interval \([0, 1]\) with an accuracy of \( \epsilon = 0.0001 \).
+
+Problem 4
+
+Determine the root of the equation \( f(x) = \ln(x) + x^2 - 3 \) in the interval \([1, 2]\) using the bisection method with an accuracy of \( \epsilon = 0.0005 \).
+
+Problem 5
+
+Use the bisection method to find the root of the equation \( f(x) = x^3 - 2x^2 + x - 1 \) in the interval \([0, 2]\) with an accuracy of \( \epsilon = 0.01 \).
+
+
+\section{Đề toán}
+\begin{enumerate}[\bf Câu 1.]
+	\item Giải các phương trình - bất phương trình sau\\
+a) $\sqrt{4 x^2+8 x-37}=\sqrt{-x^2-2 x+3}$\\
+b)	$\sqrt{-x^2+3 x+1}=x-4$\\
+c) $(x-3) \sqrt{x^2+4}=x^2-9$\\
+d) $x^2+\sqrt{x+1}=1$\\
+e) $\sqrt{x+9}=5-\sqrt{2x+4}$\\
+f) $\sqrt{5 x^2+10 x+1}=7-x^2-2 x$\\
+g) $\dfrac{1}{x^2-x+1} \leq \dfrac{1}{2 x^2+x+2}$\\
+h)	$x^4-3 x^2+2 \leq 0$
+\item Tìm các giá trị của tham số $m$ để:\\
+a) Hàm số $y=\dfrac{1}{\sqrt{m x^2-2 m x+5}}$ có tập xác định $\mathbb{R}$.\\
+b) Tam thức bậc hai $y=-x^2+m x-1$ có dấu không phụ thuộc vào $x$.\\
+c) Hàm số $y=\sqrt{-2 x^2+m x-m-6}$ có tập xác định chỉ gồm một phần tử.
+
+\item Cho đường thẳng $d: x-3 y+1=0$ và điềm $M(-1 ;-4)$.\\
+a) Tìm tọa độ điểm $N$ thuộc $d$ sao cho $MN = 4.$\\
+b) Tìm tọa độ điểm $M'$ đối xứng với $M$ qua $d$.\\
+c) Tìm tọa độ trực tâm $H$ của $\Delta MM'N$.
+\item Cho hình bình hành $A B C D$ có phương trình đường thẳng chứa cạnh $A B, A D$ lần lượt là $2 x-y-3=0, x-2 y+1=0$ và $C(3 ; 0)$. Tìm tọa độ các đỉnh và phương trình các cạnh còn lại của hình bình hành $A B C D$.
+\end{enumerate}
+
+
+
+\end{document}
