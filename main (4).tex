@@ -1,0 +1,521 @@
+\documentclass[12pt,a4paper,two side]{article}
+\usepackage[ left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+\usepackage[utf8]{}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{enumerate}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+%\hypersetup{ pdfborder={0 0 0}  % Tắt viền liên kết}
+\usepackage{xcolor}
+
+\definecolor{Darkblue}{rgb}{0, 0, 0.545}
+
+\usepackage{tocloft}
+
+
+\usepackage{cite}
+\usepackage[backend=biber,sorting=none]{biblatex}
+
+\addbibresource{references.bib}
+
+
+\begin{document}
+
+\begin{titlepage}
+		\centering
+		Trường Đại học Tôn Đức Thắng\\
+		Khoa Toán – Thống kê\\[2cm]
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.4\linewidth]{Logo ĐH Tôn Đức Thắng-TDT.png}
+	
+	\label{fig:logo-h-ton-uc-thang-tdt}
+\end{figure}
+
+	
+
+		
+	
+	
+		\huge
+		TIỂU LUẬN GIỮA KỲ\\[2cm]
+		\normalsize
+		
+		Năm học: 2024 - 2025 Học kỳ: 2\\[2cm]
+		Môn học: Soạn thảo tài liệu khoa học bằng \LaTeX\\
+		Mã môn học: C02045\\[2cm]
+		Họ và tên sinh viên thực hiện: Trần Tấn Tài\\
+		MSSV: C2400164\\[2cm]
+		Mã đề: 43\\[2cm]
+		Giảng viên giảng dạy: TS. Nguyễn Hữu Cần\\
+		\vfill
+		TP. HCM, ngày 05 tháng 03 năm 2025
+	\end{titlepage}
+	
+	\section*{Lời cam kết}
+	\begin{enumerate}[]
+		\item Tiểu luận này được tôi biên soạn lại bằng phần mềm \LaTeX với mục đích hoàn
+		thành môn học thực hành Soạn thảo tài liệu khoa học bằng \LaTeX, ngoài ra
+		không còn mục đích nào khác.
+		\item Tiểu luận này được biên soạn bằng \LaTeX dựa trên tài liệu sau:
+		\begin{enumerate}[]
+			\item Tiêu đề: An application of fixed point theorem to best approximation in locally
+			convex space
+			mixed type
+			\item Tác giả: Hemant Kumar Nashine, Mohammad Saeed Khanb
+		\end{enumerate}
+	\end{enumerate}
+	
+	\begin{flushright}
+		\begin{minipage}{.3\textwidth}
+			\centering 
+			Sinh viên thực hiện\\[1cm]
+			\textit{(ký tên)}\\[1cm]
+			Trần Tấn Tài
+		\end{minipage}
+	\end{flushright}
+	\newpage
+	
+
+{\LARGE\textbf{An application of fixed point theorem to best approximation in locally convex space}}\\
+
+\vspace{0.5cm}
+
+\fontsize{15pt}{14pt}{\textbf{Hemant Kumar Nashine ${ }^{\hyperlink{phana}{\text {\textcolor{Darkblue}{a} }}}$}, \textbf{Mohammad Saeed Khan ${ }^{\hyperlink{phanb}{\text {\textcolor{Darkblue}{b,*} }}}$}}\\
+
+\hypertarget{phana}{${ }^{\text {a }}$ \fontsize{12pt}{12pt}\textit{Department of Mathematics, Disha Institute of Management and Technology, Satya Vihar, Vidhansabha-Chandrakhuri Marg, Nardha, Mandir Hasaud, Raipur-492101 (Chhattisgarh), India}}\\
+\hypertarget{phanb}{${ }^{\text {b }}$} \fontsize{12pt}{12pt}\textit{Department of Mathematics and Statistics, Sultan Qaboos University, P.O. Box 36, PCode 123 Al-Khod, Muscat, Sultanate of Oman, Oman}\\
+
+\vspace{0.7cm}
+
+\textbf{ 1. Introduction}\\
+
+During the last four decades several interesting and valuable results were studied extensively in the field of fixed point
+ theorems.\\
+ In 1990, Jungck \cite{1}  obtained the following theorem for compatible mapping:\\
+
+ \hypertarget{muc1.1}{\textbf{ Theorem 1.1}}(\cite{citation-key1}). Let $\mathcal{T}$ and $\ell$ be compatible self-maps of a closed convex subset $\mathcal{M}$ of a Banach space $X$. Suppose $\ell$ is linear, continuous, and that $\mathcal{T}(\mathcal{M}) \subseteq \ell(\mathcal{M})$. If there exists $a \in(0,1)$ such that $x, y \in \mathcal{M}$
+
+$$
+\|\mathcal{T} x-\mathcal{T} y\| \leq a\|\ell x-\ell y\|+(1-a) \max \{\|\mathcal{T} x-\ell x\|,\|\mathcal{T} y-\ell y\|\}
+$$
+then $\mathcal{T}$ and $\ell$ have a unique common fixed point in $\mathcal{M}$.\\
+
+In this paper, we first derive a common fixed point result in locally convex space which generalizes the result of Jungck \cite{citation-key1}. This new result is used to prove another fixed point result for best approximation. By doing so, we in fact, extend and improve the result of Brosowski \cite{citation-key2}, Meinardus \cite{citation-key3}, Sahab et al. \cite{citation-key4}, Singh \cite{citation-key5,citation-key6,citation-key7} and many others.\\
+
+\textbf{2. Preliminaries}\\
+
+In the material to be presented here, the following definitions have been used:\\
+
+ In what follows, $(\varepsilon, \tau)$ will be a Hausdorff locally convex topological vector space. A family $\left\{p_\alpha: \alpha \in \Delta\right\}$ of seminorms defined on $\mathcal{E}$ is said to be an associated family of seminorms for $\tau$ if the family $\{\gamma U: \gamma>0\}$, where $U=\bigcap_{i=1}^n \mathcal{U}_{\alpha_i}, n \in \mathbb{N}$, and $U_{\alpha_i}=\left\{x \in \mathcal{E}: p_{\alpha_i}(x) \leq 1\right\}$, forms a base of neighbourhoods of zero for $\tau$. A family $\left\{p_\alpha: \alpha \in \Delta\right\}$ of seminorms defined on $\mathcal{E}$ is called an augmented associated family for $\tau$ if $\left\{p_\alpha: \alpha \in \Delta\right\}$ is an associated family with the property thatthe seminorm $\max \left\{p_\alpha, p_\beta\right\} \in\left\{p_\alpha: \alpha \in \Delta\right\}$ for any $\alpha, \beta \in \Delta$. The associated and augmented families of seminorms will be denoted by $\mathcal{A}(\tau)$ and $\mathcal{A}^*(\tau)$, respectively. It is well known that given a locally convex space $(\mathcal{E}, \tau)$, there always exists a family $\left\{p_\alpha: \alpha \in \Delta\right\}$ of seminorms defined of $\mathcal{E}$ such that $\left\{p_\alpha: \alpha \in \Delta\right\}=\mathcal{A}^*(\tau)$ (see [\cite{citation-key8}, pp 203]). A subset $\mathcal{M}$ of $\mathcal{E}$ is $\tau$-bounded if and only if each $p_\alpha$ is bounded on $\mathcal{M}$.\\
+\newpage
+ * Corresponding author.\\
+E-mail addresses:\\
+nashine\_09@rediffmail.com, hemantnashine@gmail.com 
+(H.K. Nashine),\\
+mohammad@squedu.om (M.S. Khan).\\
+0893-9659/\$ - see front matter © 2009 Published by Elsevier Ltd\\
+doi: 10.1016/j.aml.2009.06.025\\
+
+ Suppose that $\mathcal{M}$ is a $\tau$-bounded subset of $\mathcal{E}$. For this set $\mathcal{M}$, we can select a number $\lambda_\alpha>0$ for each $\alpha \in \Delta$ such that $\mathcal{M} \subset \lambda_\alpha U_\alpha$ where $U_\alpha=\left\{x \in \mathcal{M}: p_\alpha(x) \leq 1\right\}$. Clearly, $\mathscr{B}=\bigcap_\alpha \lambda_\alpha U_\alpha$ is $\tau$-bounded, $\tau$-closed, absolutely convex and contains $\mathcal{M}$. The linear span $\varepsilon_{\mathscr{B}}$ of $\mathscr{B}$ in $\mathcal{\varepsilon}$ is $\bigcup_{n=1}^{\infty} n \mathscr{B}$. The Minkowski functional of $\mathscr{B}$ is a norm $\|\cdot\|_{\mathcal{B}}$ on $\varepsilon_{\mathscr{B}}$. Thus, $\left(\varepsilon_{\mathcal{B}},\|\cdot\|_{\mathcal{B}}\right)$ is a normed space with $\mathscr{B}$ as its closed unit ball and $\sup _\alpha p_\alpha\left(x / \lambda_\alpha\right)=\|x\|_{\mathcal{B}}$ for each $x \in \mathcal{E}_{\mathscr{B}}$. 
+ (for details, see  \cite{citation-key9,citation-key10,citation-key11}).\\
+
+\textbf{Definition 2.1} (\cite{citation-key9}). Let $\ell$ and $\mathcal{T}$ be self-maps on $\mathcal{M}$. The map $\mathcal{T}$ is called\\
+(i) $\mathcal{A}^*(\tau)$-nonexpansive if for all $x, y \in \mathcal{M}$
+
+$$
+p_\alpha(\mathcal{T} x-\mathcal{T} y) \leq p_\alpha(x-y)
+$$
+
+for each $p_\alpha \in \mathcal{A}^*(\tau)$.
+(ii) $\mathcal{A}^*(\tau)-\ell$-nonexpansive if for all $x, y \in \mathcal{M}$
+
+$$
+p_\alpha(\mathcal{T} x-\mathcal{T} y) \leq p_\alpha(\ell x-\ell y)
+$$
+
+for each $p_\alpha \in \mathcal{A}^*(\tau)$.\\
+
+For simplicity, we shall call $\mathscr{A}^*(\tau)$-nonexpansive $\left(\mathcal{A}^*(\tau)-\ell\right.$-nonexpansive) maps to be nonexpansive ( $\ell$-nonexpansive).\\
+
+\textbf{Definition 2.2} (\cite{citation-key11}). A pair of self-mappings $(\mathcal{T}, \ell)$ of a locally convex space $(\mathcal{E}, \tau)$ is said to be compatible, if $p_\alpha\left(\mathcal{T} \ell x_n-\right.$ $\left.\ell \mathcal{T} x_n\right) \rightarrow 0$, whenever $\left\{x_n\right\}$ is a sequence in $\mathcal{E}$ such that $\mathcal{T} x_n, \ell x_n \rightarrow t \in \mathcal{E}$.\\
+Every commuting pair of mappings is compatible but the converse is not true in general.\\
+
+\textbf{Definition 2.3} Suppose that $\mathcal{M}$ is $q$-starshaped with $q \in \mathcal{F}(\ell)$ and is both $\mathcal{T}$ - and $\ell$-invariant. Then $\mathcal{T}$ and $\ell$ are called $\mathcal{R}$-subcommuting \cite{citation-key12, citation-key13,citation-key14} on $\mathcal{M}$, if for all $x \in \mathcal{M}$ and for all $p_\alpha \in \mathcal{A}^*(\tau)$, there exists a real number $\mathcal{R}>0$ such that $p_\alpha(\ell \mathcal{T} x-\mathcal{T} \ell x) \leq\left(\frac{\mathcal{R}}{k}\right) p_\alpha(((1-k) q+k \mathcal{T} x)-\ell x)$ for each $k \in(0,1)$. If $\mathcal{R}=1$, then the maps are called 1 -subcommuting. The $\ell$ and $\mathcal{T}$ are called $\mathscr{R}$-subweakly commuting \cite{citation-key15} on $\mathcal{M}$, if for all $x \in \mathcal{M}$ and for all $p_\alpha \in \mathcal{A}^*(\tau)$, there exists a real number $\mathcal{R}>0$ such that $p_\alpha(\ell \mathcal{T} x-\mathcal{T} \ell x) \leq \mathcal{R} d_{p_\alpha}(\ell x,[q, \mathcal{T} x])$, where $[q, x]=(1-k) q+k x: 0 \leq k \leq 1$.\\
+
+\textbf{Remark 2.4}. (1) It is obvious that commutativity implies $\mathscr{R}$-subcommutativity, which in turn implies $\mathscr{R}$-weakly commutativity \cite{ citation-key13} , \cite{citation-key14}.
+(2) It is also well known that commuting maps are $\mathscr{R}$-subweakly commuting maps and $\mathscr{R}$-subweakly commuting maps are $\mathscr{R}$-weakly commuting but not conversely in general (see \cite{citation-key15}).
+
+To clear the above remarks, in the following, we have furnished some examples:\\
+
+\textbf{Example 2.5.} Let $\mathcal{X}=\mathbb{R}$ with norm $\|x\|=|x|$ and $\mathcal{M}=[1, \infty)$. Let $\mathcal{T}, s: \mathcal{M} \rightarrow \mathcal{M}$ be defined by
+
+$$
+\mathcal{T} x=x^2 \quad \text { and } \quad s x=2 x-1
+$$
+
+for all $x \in \mathcal{M}$. Then $\mathcal{T}$ and $s$ are $\mathcal{R}$-weakly commuting with $\mathcal{R}=2$. However, they are not $\mathscr{R}$-subcommuting because
+
+$$
+|\mathcal{T} s x-s \mathcal{T} x| \leq\left(\frac{\mathcal{R}}{k}\right)|(k \mathcal{T} x+(1-k) p)-s x|
+$$
+
+does not hold for $x=2$ and $k=\frac{2}{3}$, where $p=1 \in \mathscr{F}(s)$.\\
+
+\textbf{Example 2.6.} Let $\mathcal{X}=\mathbb{R}$ with norm $\|x\|=|x|$ and $\mathcal{M}=[1, \infty)$. Let $\mathcal{T}, s: \mathcal{M} \rightarrow \mathcal{M}$ be defined by
+
+$$
+\mathcal{T} x=4 x-3 \quad \text { and } \quad s x=2 x^2-1
+$$
+
+for all $x \in \mathcal{M}$. Then $\mathcal{M}$ is $p$-starshaped with $p=1 \in \mathcal{F}(\delta)$ and is both $\mathcal{T}$ and $s$-invariant. Also, $|\mathcal{T} \delta x-s \mathcal{T} x|=24(x-1)^2$. Further,
+
+$$
+|\mathcal{T} s x-s \mathcal{T} x| \leq\left(\frac{\mathcal{R}}{k}\right)|(k \mathcal{T} x+(1-k) p)-s x|
+$$
+
+for all $x \in \mathcal{M}$, where $\mathcal{R}=12$ and $p=1 \in \mathcal{F}(s)$. Thus, $\mathcal{T}$ and $s$ are $\mathcal{R}$-subcommuting on $\mathcal{M}$ but are not commuting on $\mathcal{M}$.\\
+
+\textbf{Example 2.7.} Let $\mathcal{X}=\mathbb{R}^2$ with norm $\|(x, y)\|=\max \{|x|,|y|\}$, and let $\mathcal{T}$ and $s$ be defined by
+
+$$
+\mathcal{T}(x, y)=\left(2 x-1, y^3\right) \quad \text { and } \quad s(x, y)=\left(x^2, y^2\right)
+$$
+for all $(x, y) \in \mathcal{X}$. Then $\mathcal{T}$ and $s$ are $\mathcal{R}$-subweakly commuting on $\mathcal{M}=\{(x, y): x \geq 1, y \geq 1\}$ but they are not commuting on $\mathcal{M}$.\\
+
+\textbf{Definition 2.8.} Suppose that $\mathcal{M}$ is $q$-starshaped with $q \in \mathcal{F}(\ell)$.\\
+Define $\bigwedge_q(\ell, \mathcal{T})=\left\{\wedge\left(\ell, \mathcal{J}_k\right): 0 \leq k \leq 1\right\}$ where $\mathcal{T}_k x=(1-k) q+k \mathcal{T} x$ and\\
+$\bigwedge\left(\ell, \mathcal{T}_k\right)=\left\{\left\{x_n\right\} \subset \mathcal{M}:\lim _n \ell x_n=\lim _n \mathcal{T}_k x_n=t \in \mathcal{M} \Rightarrow \lim _n p_\alpha\left(\ell \mathcal{T}_k x_n-\mathcal{T}_k \ell x_n\right)=0\right\}$, for all sequences $\left\{x_n\right\} \in \bigwedge_q(\ell, \mathcal{T})$. Then $\ell$ and $\mathcal{T}$ are called subcompatible \cite{citation-key16},\cite{17} if
+
+$$
+\lim _n p_\alpha\left(\mathfrak{J} x_n-\mathcal{T} \ell x_n\right)=0
+$$
+for all sequences $x_n \in \bigwedge_q(\ell, \mathcal{T})$.\\
+
+Obviously, subcompatible maps are compatible but the converse does not hold, in general, as the following example shows.\\
+
+\textbf{Example 2.9.} Let $\mathcal{X}=\mathbb{R}$ with usual norm and $\mathcal{M}=[1, \infty)$. Let $\ell(x)=2 x-1$ and $\mathcal{T}(x)=x^2$, for all $x \in \mathcal{M}$. Let $q=1$. Then $\mathcal{M}$ is $q$-starshaped with $\ell q=q$. Note that $\ell$ and $\mathcal{T}$ are compatible. For any sequence $\left\{x_n\right\}$ in $\mathcal{M}$ with $\lim _n x_n=2$, we have, $\lim _n \ell x_n=\lim _n \mathcal{T}_{\frac{2}{3}} x_n=3 \in \mathcal{M} \Rightarrow \lim _n\left\|\ell \mathcal{T}_{\frac{2}{3}} x_n-\mathcal{T}_{\frac{2}{3}} \ell x_n\right\|=0$. However, $\lim _n\left\|\ell \mathcal{T} x_n-\mathcal{T} \ell x_n\right\| \neq 0$. Thus $\ell$ and $\mathcal{T}$ are not subcompatible maps.\\
+
+Note that $\mathscr{R}$-subweakly commuting and $\mathcal{R}$-subcommuting maps are subcompatible. The following simple example reveals that the converse is not true, in general.\\
+
+\textbf{Example 2.10.} Let $\mathcal{X}=\mathbb{R}$ with usual norm and $\mathcal{M}=[0, \infty)$. Let $\ell(x)=\frac{x}{2}$ if $0 \leq x<1$ and $\ell x=x$ if $x \geq 1$, and $\mathcal{T}(x)=\frac{1}{2}$ if $0 \leq x<1$ and $\mathcal{T} x=x^2$ if $x \geq 1$. Then $\mathcal{M}$ is 1 -starshaped with $\ell 1=1$ and $\bigwedge_q(\ell, \mathcal{T})=\left\{\left\{x_n\right\}: 1 \leq x_n<\infty\right\}$. Note that $\ell$ and $\mathcal{T}$ are subcompatible but not $\mathcal{R}$-weakly commuting for all $\mathcal{R}>0$. Thus $\ell$ and $\mathcal{T}$ are neither $\mathscr{R}$-subweakly commuting nor $\mathcal{R}$-subcommuting maps.\\
+
+\textbf{Definition 2.11} (\cite{citation-key9}). Let $x_0 \in \mathcal{E}$ and $\mathcal{M} \subseteq \mathcal{E}$. Then for $0<a \leq 1$, we define the set $\mathscr{D}_a$ of best ( $\left.\mathcal{M}, a\right)$-approximant to $x_0$ as follows:
+
+$$
+\mathscr{D}_a=\left\{y \in \mathcal{M}: a p_\alpha\left(y-x_0\right)=d_{p_\alpha}\left(x_0, \mathcal{M}\right), \quad \text { for all } p_\alpha \in \mathcal{A}^*(\tau)\right\}
+$$
+
+where
+
+$$
+d_{p_\alpha}\left(x_0, \mathcal{M}\right)=\inf \left\{p_\alpha\left(x_0-z\right): z \in \mathcal{M}\right\}
+$$
+For $a=1$, definition reduces to the set $\mathscr{D}$ of best $\mathcal{M}$-approximant to $x_0$.\\
+
+\textbf{Definition 2.12.} The map $\mathcal{T}: \mathcal{M} \rightarrow \mathcal{E}$ is said to be demiclosed at 0 if for every net $\left\{x_n\right\}$ in $\mathcal{M}$ converging weakly to $x$ and $\left\{\mathcal{T} x_n\right\}$ converging strongly to 0 , we have $\mathcal{T} x=0$.
+
+Throughout, this paper $\mathcal{F}(\mathcal{T})$ (resp. $\mathcal{F}(\ell))$ denotes the fixed point set of mapping $\mathcal{T}$ (resp. $(\ell)$ ).\\
+
+
+\textbf{3. Main result}\\
+
+To prove the main result, a lemma is presented below:\\
+
+\hypertarget{muc3.1}{\textbf{Lemma 3.1.}} Let $\mathcal{T}$ and $\ell$ be compatible self-maps of a $\tau$-bounded subset $\mathcal{M}$ of a Hausdorff locally convex space $(\mathcal{E}, \tau)$. Then $\mathcal{T}$ and $\ell$ be compatible on $\mathcal{M}$ with respect to $\|\cdot\|_{\mathcal{B}}$.\\
+
+\textbf{Proof.} By hypothesis for each $p_\alpha \in \mathcal{A}^*(\tau)$,
+
+$$
+p_\alpha\left(\mathcal{T} \ell x_n-\ell \mathcal{T} x_n\right) \rightarrow 0,  \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ (3.1)
+$$ 
+
+whenever $\left\{x_n\right\}$ is a sequence in $\mathcal{M}$ such that
+
+$$
+p_\alpha\left(\mathcal{T} x_n-t\right) \rightarrow 0, \quad p_\alpha\left(\ell x_n-t\right) \rightarrow 0
+$$
+
+for some $t \in \mathcal{M}$.
+Taking supremum on both sides,
+
+$$
+\sup _\alpha p_\alpha\left(\frac{\mathcal{T} \ell x_n-\ell \mathcal{T} x_n}{\lambda_\alpha}\right) \rightarrow 0
+$$
+
+\textbf{i.e.,}
+
+$$
+\left\|\mathcal{T} \ell x_n-\ell \mathcal{T} x_n\right\|_{\mathcal{B}} \rightarrow 0
+$$
+
+whenever $\left\{x_n\right\}$ is a sequence in $\mathcal{M}$ such that
+
+$$
+\sup _\alpha p_\alpha\left(\frac{\mathcal{T} x_n-t}{\lambda_\alpha}\right) \rightarrow 0, \quad \sup _\alpha p_\alpha\left(\frac{\ell x_n-t}{\lambda_\alpha}\right) \rightarrow 0
+$$
+\textbf{i.e.,}
+
+$$
+\left\|\mathcal{T} x_n-t\right\|_{\mathscr{B}} \rightarrow 0, \quad\left\|\ell x_n-t\right\|_{\mathcal{B}} \rightarrow 0
+$$
+
+
+A technique of Tarafdar \cite{citation-key10} to obtain the following common fixed point theorem which generalizes\hyperlink{muc1.1}{{\textcolor{Darkblue}{Theorem 1.1.}}}\\
+
+\textbf{Theorem 3.2.} Let $\mathcal{M}$ be a nonempty $\tau$-bounded, $\tau$-sequentially complete and convex subset of a Hausdorff locally convex space $(\mathcal{E}, \tau)$. Let $\mathcal{T}$ and $\ell$ be compatible self-maps of $\mathcal{M}$ such that $\mathcal{T}(\mathcal{X}) \subseteq \ell(\mathcal{X}), \ell$ is linear and nonexpansive, and satisfying
+
+$$
+p_\alpha(\mathcal{T} x-\mathcal{T} y) \leq a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{p_\alpha(\mathcal{T} x-\ell x), p_\alpha(\mathcal{T} y-\ell y)\right\} \ \ \ \ \ \ \ \ \ \ \  \ \ \  \hypertarget{dau3.2}{(3.2)}
+$$
+for all $x, y \in \mathcal{M}$ and $p_\alpha \in \mathcal{A}^*(\tau)$, and for some $a \in(0,1)$, then $\mathcal{T}$ and $\ell$ have a unique common fixed point.\\
+
+\textbf{Proof.} Since the norm topology on $\varepsilon_{\mathcal{B}}$ has a base of neighbourhoods of zero consisting of $\tau$-closed sets and $\mathcal{M}$ is $\tau$ sequentially complete, therefore, $\mathcal{M}$ is a $\|\cdot\|_B$-sequentially complete subset of ( $\mathcal{E}_{\mathscr{B}},\|\cdot\|_{\mathcal{B}}$ ) (Theorem 1.2, \cite{citation-key10}). \hyperlink{muc3.1}{\textcolor{Darkblue}{By Lemma 3.1}}, $\mathcal{T}$ and $\ell$ are $\|\cdot\|_{\mathcal{B}}$-compatible maps of $\mathcal{M}$. From \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}}, we obtain for $x, y \in \mathcal{M}$,
+
+$$
+\sup _\alpha p_\alpha\left(\frac{\mathcal{T} x-\mathcal{T} y}{\lambda_\alpha}\right) \leq a \sup _\alpha p_\alpha\left(\frac{\ell x-\ell y}{\lambda_\alpha}\right)+(1-a) \max \left\{\sup _\alpha p_\alpha\left(\frac{\mathcal{T} x-\ell x}{\lambda_\alpha}\right), \sup _\alpha p_\alpha\left(\frac{\mathcal{T} y-\ell y}{\lambda_\alpha}\right)\right\}
+$$
+
+
+Thus
+
+$$
+\|\mathcal{T} x-\mathcal{T} y\|_{\mathcal{B}} \leq a\|\ell x-\ell y\|_{\mathcal{B}}+(1-a) \max \left\{\|\mathcal{T} x-\ell x\|_{\mathcal{B}},\|\mathcal{T} y-\ell y\|_{\mathcal{B}}\right\}
+\ \ \ \ \ \ \ \ \ \ \  \ \ \ (3.3)$$
+
+
+Note that, if $\ell$ is nonexpansive on a $\tau$-bounded, $\tau$-sequentially complete subset $\mathcal{M}$ of $\mathcal{E}$, then $\ell$ is also nonexpansive with respect to $\|\cdot\|_{\mathcal{B}}$ and hence $\|\cdot\|_{\mathcal{B}}$-continuous \cite{citation-key8}. A comparison of our hypothesis with that of \hyperlink{muc1.1}{\textcolor{Darkblue}{Theorem 1.1}} tells that we can apply\hyperlink{muc1.1}{ \textcolor{Darkblue}{Theorem 1.1}} to $\mathcal{M}$ as a subset of $\left(\mathcal{E}_{\mathcal{B}},\|\cdot\|_{\mathcal{B}}\right)$ to conclude that there exists a unique $w \in \mathcal{M}$ such that $w=\mathcal{T} w=\ell w$.\\
+
+\textbf{Example 3.3.} Let $X=\mathbb{R}$ with usual norm and $\mathcal{M}=[0,1]$. Let $\mathcal{T}(x)=1$ for $0 \leq x \leq \dfrac{1}{2}$, and $\mathcal{T}(x)=0$ for $\dfrac{1}{2}<x \leq 1, \ell(x)=0$ for $0<x \leq \dfrac{1}{2}$, and $\ell(x)=1$ for $\dfrac{1}{2}<x \leq 1$. Then all the assumptions of Theorem 3.2 are satisfied, but $\mathcal{T}$ and $\ell$ have no common fixed point.\\
+
+\hypertarget{muc3.4}{\textbf{Theorem 3.4.}} Let $\mathcal{M}$ be a nonempty $\tau$-bounded, $\tau$-sequentially complete and convex subset of a Hausdorff locally convex space $(\varepsilon, \tau)$. Let $\mathcal{T}$ and $\ell$ be self-maps of $\mathcal{M}$ such that $\mathcal{T}$ and $\ell$ are subcompatible. Suppose that $\mathcal{T}$ and $\ell$ satisfy \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}}, $\ell$ is linear and nonexpansive, $\ell(\mathcal{M})=\mathcal{M}, q \in \mathcal{F}(\ell)$, then $\mathcal{T}$ and $\Omega$ have a common fixed point provided one of the following conditions holds:\\
+(i) $\mathcal{M}$ is $\tau$-sequentially compact and $\mathcal{T}$ is continuous;\\
+(ii) $\mathcal{T}$ is a compact map;\\
+(iii) $\mathcal{M}$ is weakly compact in $(\mathcal{\ell}, \tau), \ell$ is weakly continuous and $\ell-\mathcal{T}$ is demiclosed at 0 .\\
+
+\textbf{Proof.} Choose a monotonically nondecreasing sequence $\left\{k_n\right\}$ of real numbers such that $0<k_n<1$ and $\lim \sup k_n=1$. For each $n \in \mathbb{N}$, define $\mathcal{T}_n: \mathcal{M} \rightarrow \mathcal{M}$ as follows:
+$$
+\mathcal{T}_n x=k_n \mathcal{T} x+\left(1-k_n\right) q \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \hypertarget{dau3.4}{(3.4)} 
+$$
+Obviously, for each $n, \mathcal{T}_n$ maps $\mathcal{M}$ into itself, since $\mathcal{M}$ is convex.
+As $\ell$ is linear, we can have\\
+$$
+\mathcal{T}_m \ell x_n=k_n \mathcal{T} \ell x_n+\left(1-k_n\right) q
+$$
+and
+$$
+l \mathcal{T}_m x=k_n \ell \mathcal{T} x_n+\left(1-k_n\right) \ell q
+$$
+The subcompatibility of $\ell$ and $\mathcal{T}$ and $q \in \mathcal{F}(\ell)$ implies that
+$$
+\begin{aligned}
+0 & \leq \lim _n p_\alpha\left(\mathcal{T}_n \ell x_m-\ell \mathcal{T}_n x_m\right) \\
+& \leq \lim _m k_n p_\alpha\left(\mathcal{T} \ell x_m-\ell \mathcal{T} x_m\right)+\lim _m\left(1-k_n\right) p_\alpha(q-\ell q) \\
+& =0
+\end{aligned}
+$$
+
+for any $\left\{x_m\right\} \subset \mathcal{M}$ with $\lim _m \mathcal{T}_n x_m=\lim _m \ell x_m=t \in \mathcal{M}$.\\
+Hence $\left\{\mathcal{T}_n\right\}$ and $\ell$ are compatible for each $n$ and $x_n \in \mathcal{M}$ and $\mathcal{T}_n(\mathcal{M}) \subseteq \mathcal{M}=\ell(\mathcal{M}), \boldsymbol{l}$ is linear and $q \in \mathcal{F}(\ell)$. Therefore $\mathcal{T}_n(\mathcal{M}) \subseteq \ell(\mathcal{M})$.\\
+
+For all $x, y \in \mathcal{M}, p_\alpha \in \mathcal{A}^*(\tau)$ and for all $j \geq n$, ( $n$ fixed), we obtain from \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}} and \hyperlink{dau3.4}{\textcolor{Darkblue}{(3.4)}} that\\
+
+$$
+\begin{aligned}
+p_\alpha\left(\mathcal{T}_n x-\mathcal{T}_n y\right)= & k_n p_\alpha(\mathcal{T} x-\mathcal{T} y) \leq k_j p_\alpha(\mathcal{T} x-\mathcal{T} y) \\
+\leq & p_\alpha(\mathcal{T} x-\mathcal{T} y) \\
+\leq & a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{p_\alpha(\mathcal{T} x-I x), p_\alpha(\mathcal{T} y-\ell y)\right\} \\
+\leq & a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{p_\alpha\left(\mathcal{T} x-\mathcal{T}_n x\right)+p_\alpha\left(\mathcal{T}_n x-\ell x\right), p_\alpha\left(\mathcal{T} y-\mathcal{T}_n y\right)+p_\alpha\left(\mathcal{T}_n y-\ell y\right)\right\} \\
+\leq & a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{\left(1-k_n\right) p_\alpha(\mathcal{T} x-q)\right. \\
+& \left.+p_\alpha\left(\mathcal{T}_n x-\ell x\right),\left(1-k_n\right) p_\alpha(\mathcal{T} y-q)+p_\alpha\left(\mathcal{T}_n y-\ell y\right)\right\}
+\end{aligned}
+$$
+
+
+Hence for all $j \geq n$, we have\\
+$$
+\begin{aligned}
+p_\alpha\left(\mathcal{T}_n x-\mathcal{T}_n y\right) \leq & a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{\left(1-k_j\right) p_\alpha(\mathcal{T} x-q)\right. \\
+& \left.+p_\alpha\left(\mathcal{T}_n x-\ell x\right),\left(1-k_j\right) p_\alpha(\mathcal{T} y-q)+p_\alpha\left(\mathcal{T}_n y-\ell y\right)\right\}   \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ (3.5)
+\end{aligned}
+$$
+
+As $\lim k_j=1$, from (3.5), for every $n \in \mathbb{N}$, we have
+$$
+\begin{aligned}
+p_\alpha\left(\mathcal{T}_n x-\mathcal{T}_n y\right)= & \lim _j p_\alpha\left(\mathcal{T}_n x-\mathcal{T}_n y\right) \\
+\leq & \lim _j\left\{a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{\left(1-k_j\right) p_\alpha(\mathcal{T} x-q)\right.\right. \\
+& \left.\left.+p_\alpha\left(\mathcal{T}_n x-\ell x\right),\left(1-k_j\right) p_\alpha(\mathcal{T} y-q)+p_\alpha\left(\mathcal{T}_n y-\ell y\right)\right\}\right\} \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ (3.6)
+\end{aligned}
+$$
+
+This implies that for every $n \in \mathbb{N}$,
+$$
+p_\alpha\left(\mathcal{T}_n x-\mathcal{T}_n y\right) \leq a p_\alpha(\ell x-\ell y)+(1-a) \max \left\{p_\alpha\left(\mathcal{T}_n x-\ell x\right), p_\alpha\left(\mathcal{T}_n y-\ell y\right)\right\} \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ (3.7)
+$$
+
+for all $x, y \in \mathcal{M}$ and for all $p_\alpha \in \mathcal{A}^*(\tau)$.\\
+
+Moreover, $\ell$ being nonexpansive on $\mathcal{M}$, implies that $\ell$ is $\|\cdot\|_{\mathscr{B}}$-nonexpansive and, hence, $\|\cdot\|_{\mathscr{B}}$-continuous. Since the norm topology on $\varepsilon_{\mathscr{B}}$ has a base of neighbourhoods of zero consisting of $\tau$-closed sets and $\mathcal{M}$ is $\tau$-sequentially complete, therefore, $\mathcal{M}$ is a $\|\cdot\|_{\mathscr{B}}$-sequentially complete subset of $\left(\varepsilon_{\mathcal{B}},\|\cdot\|_{\mathscr{B}}\right)$ (see proof in [10, Theorem 1.2]). Thus from \hyperlink{muc3.2}{\textcolor{Darkblue}{Theorem 3.2}}, for every $n \in \mathbb{N}, \mathcal{T}_n$ and $l$ have unique common fixed point $x_n$ in $\mathcal{M}$, i.e.,
+
+$$
+x_n=\mathcal{T}_n x_n=\ell x_n \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ (3.8)
+$$
+
+for each $n \in \mathbb{N}$.\\
+(i) As $\mathcal{M}$ is $\tau$-sequentially compact and $\left\{x_n\right\}$ is a sequence in $\mathcal{M}$, so $\left\{x_n\right\}$ has a convergent subsequence $\left\{x_m\right\}$ such that $x_m \rightarrow y \in \mathcal{M}$. As $L$ and $\mathcal{T}$ are continuous and\\
+$$
+x_m=\ell x_m=\mathcal{T}_m x_m=k_m \mathcal{T} x_m+\left(1-k_m\right) q
+$$
+
+so it follows that $y=\mathcal{T} y=\ell y$.\\
+(ii) As $\mathcal{T}$ is compact and $\left\{x_n\right\}$ is bounded, so $\left\{\mathcal{T} x_n\right\}$ has a subsequence $\left\{\mathcal{T} x_m\right\}$ such that $\left\{\mathcal{T} x_m\right\} \rightarrow z \in \mathcal{M}$. Now we have\\
+$$
+x_m=\mathcal{T}_m x_m=k_{\mathrm{m}} \mathcal{T} x_m+\left(1-k_m\right) q
+$$
+
+Proceeding to the limit as $m \rightarrow \infty$ and using the continuity of $l$ and $\mathcal{T}$, we have $\ell z=z=\mathcal{T} z$.\\
+(iii) The sequence $\left\{x_n\right\}$ has a subsequence $\left\{x_m\right\}$ converges to $u \in \mathcal{M}$. Since $\boldsymbol{l}$ is weakly continuous and so as in (i), we have $\iota u=u$. Now,
+
+$$
+x_m=l x_m=\mathcal{T}_m x_m=k_m \mathcal{T} x_m+\left(1-k_m\right) q
+$$
+
+implies that\\
+
+$$
+\ell x_m-\mathcal{T} x_m=\left(1-k_m\right)\left[q-\mathcal{T} x_m\right] \rightarrow 0
+$$
+
+as $m \rightarrow \infty$. The demiclosedness of $\ell-\mathcal{T}$ at 0 implies that $(\ell-\mathcal{T}) u=0$. Hence $\ell u=u=\mathcal{T} u$. This completes the proof.\\
+
+\textbf{Example 3.5.} Let $\mathcal{X}=\mathbb{R}^2$ and $\mathcal{M}=\left\{0,1,1-\dfrac{1}{n-1}: n \in \mathbb{N}\right\}$ be endowed with usual metric. Define $\mathcal{T} 1=0$ and $\mathcal{T} 0=\mathcal{T}\left(1-\dfrac{1}{n-1}\right)=1$ for all $n \in \mathbb{N}$. Clearly, $\mathcal{M}$ is not convex. Let $\ell x=x$ for all $x \in \mathcal{M}$. Now $\mathcal{T}$ and $\ell$ satisfy \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}} together with all other conditions of \hyperlink{muc3.4}{\textcolor{Darkblue}{Theorem 3.4}}$(\mathrm{i})$ except the condition that $\mathcal{T}$ is continuous. Note that $\mathcal{F}(\mathcal{T}) \cap \mathcal{F}(\ell)=\emptyset$.\\
+
+\textbf{Example 3.6.} Let $\mathcal{X}=\mathbb{R}^2$ be endowed with the norm defined by $\|(a, b)\|=|a|+|b|,(a, b) \in \mathbb{R}^2$.\\
+(1) Let $\mathcal{M}=\mathcal{A} \cup \mathscr{B}$, where $\mathcal{A}=\{(a, b) \in \mathcal{X}: 0 \leq a \leq 1,0 \leq b \leq 4\}$ and $\mathscr{B}=\{(a, b) \in \mathcal{X}: 2 \leq a \leq 3,0 \leq b \leq 4\}$.
+
+Define $\mathcal{T}: \mathcal{M} \rightarrow \mathcal{M}$ by
+
+$$
+\mathcal{T}(a, b)= \begin{cases}(2, b) & \text { if }(a, b) \in \mathscr{A} \\ (1, b) & \text { if }(a, b) \in \mathscr{B}\end{cases}
+$$
+
+
+and $\mathcal{L}(x)=x$ for all $x \in \mathcal{M}$. All the conditions of Theorem 3.4 (ii) are satisfied except that $\mathcal{M}$ is not convex. Note that $\mathcal{F}(\mathcal{T}) \cap \mathcal{F}(l)=\emptyset$.\\
+
+(2) $\mathcal{M}=\{(a, b) \in \mathcal{X}: 2 \leq a<\infty, 0 \leq b \leq 1\}$ and $\mathcal{T}: \mathcal{M} \rightarrow \mathcal{M}$ is defined by
+
+$$
+\mathcal{T}(a, b)=\{(a+1, b):(a, b) \in \mathcal{M}\}
+$$
+
+
+Define $\ell(x)=x$ for all $x \in \mathcal{M}$. All the conditions of \hyperlink{muc3.4}{\textcolor{Darkblue}{Theorem 3.4}}$($ ii $)$ are satisfied except that $\mathcal{T}(\mathcal{M})$ is compact. Note $\mathcal{F}(\mathcal{T}) \cap \mathcal{F}(\ell)=\emptyset$. Notice that $\mathcal{M}$, being convex and $\mathcal{T}$-invariant.\\
+
+(3) If $\mathcal{M}=\{(a, b) \in \mathcal{X}: 0 \leq a<1,0 \leq b \leq 1\}$ and $\mathcal{T}: \mathcal{M} \rightarrow \mathcal{M}$ is defined by
+
+$$
+\mathcal{T}(a, b)=\left(\frac{a}{2}, \frac{b}{3}\right) \quad \text { and } \quad L(x)=x \quad \text { for all } x \in \mathcal{M}
+$$
+
+
+All of the conditions of \hyperlink{muc3.4}{\textcolor{Darkblue}{Theorem 3.4}} (ii) are satisfied except the fact that $\mathcal{M}$ is closed. However $\mathcal{F}(\mathcal{T}) \cap \mathcal{F}(\boldsymbol{l})=\emptyset$.\\
+
+\textbf{Example 3.7.} Let $\mathcal{M}=\mathbb{R}^2$ be endowed with the norm defined by $\|(a, b)\|=|a|+|b|,(a, b) \in \mathbb{R}^2$. Define $\mathcal{T}$ and $\mathcal{L}$ on $\mathcal{M}$ as follows:
+
+$$
+\begin{aligned}
+& \mathcal{T}(x, y)=\left(\dfrac{1}{2}(x-2), \dfrac{1}{2}\left(x^2+y-4\right)\right) \\
+& \mathscr{L}(x, y)=\left(\frac{1}{2}(x-2),\left(x^2+y-4\right)\right)
+\end{aligned}
+$$
+
+
+Obviously, $\mathcal{T}$ is $\ell$-nonexpansive but $\ell$ is not linear. Moreover, $\mathcal{F}(\mathcal{T})=\{-2,0\},\\
+\mathcal{F}(l)=\{(-2, y): y \in \mathbb{R}\}$ and the set of coincidence points of $\ell$ and $\mathcal{T}$, that is\\ $\mathcal{C}(\ell, \mathcal{T})=\left\{(x, y): y=4-x^2, x \in \mathbb{R}\right\}$. Thus $(\mathcal{T}, \ell)$ is a continuous, which is not compatible pair, and $(-2,0)$ is a common fixed point of $L$ and $\mathcal{T}$.\\
+
+An application of Theorem 3.4, we prove the following more general result in best approximation theory.\\
+
+\textbf{Theorem 3.8.} Let $\mathcal{T}$ and $l$ be self-maps of $a$ Hausdorff locally convex space $(\varepsilon, \tau)$ and $\mathcal{M}$ a subset of $\varepsilon$ such that $\mathcal{T}(\partial \mathcal{M}) \subseteq \mathcal{M}$, where $\partial \mathcal{M}$ stands for the boundary of $\mathcal{M}$ and $x_0 \in \mathcal{F}(\mathcal{T}) \cap \mathcal{F}(l)$. Suppose that $\ell$ is nonexpansive and linear on $\mathcal{D}_a$. Further, suppose $\mathcal{T}$ and $\ell$ satisfy \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}} for all $x, y \in \mathscr{D}_a^{\prime}=\mathscr{D}_a \cup\left\{x_0\right\}$ and pair $(\mathcal{T}, \boldsymbol{\ell})$ are subcompatible on $\mathscr{D}_a$. If $\mathscr{D}_a$ is nonempty convex and $\ell\left(\mathscr{D}_a\right)=\mathscr{D}_a$, then $\mathcal{T}$ and I have a common fixed point in $\mathscr{D}_a$ provided one of the following conditions holds:\\
+(i) $\mathscr{D}_a$ is $\tau$-sequentially compact;\\
+(ii) $\mathcal{T}$ is a compact map;\\
+(iii) $\mathscr{D}_a$ is weakly compact in $(\mathcal{E}, \tau), \Omega$ is weakly continuous and $\ell-\mathcal{T}$ is demiclosed at 0 .\\
+
+\textbf{Proof.} First, we show that $\mathcal{T}$ is self-maps on $\mathscr{D}_a$, i.e., $\mathcal{T}: \mathscr{D}_a \rightarrow \mathscr{D}_a$. Let $y \in \mathscr{D}_a$, then $\ell y \in \mathscr{D}_a$, since $\ell\left(\mathscr{D}_a\right)=\mathscr{D}_a$. Also, if $y \in \partial \mathcal{M}$, then $\mathcal{T} y \in \mathcal{M}$, since $\mathcal{T}(\partial \mathcal{M}) \subseteq \mathcal{M}$. Now since $\mathcal{T} x_0=x_0=\ell x_0$, so for each $p_\alpha \in \mathcal{A}^*(\tau)$, we have from \hyperlink{dau3.2}{\textcolor{Darkblue}{(3.2)}}
+
+$$
+\begin{aligned}
+p_\alpha\left(\mathcal{T} y-x_0\right) & =p_\alpha\left(\mathcal{T} y-\mathcal{T} x_0\right) \\
+& \leq a p_\alpha\left(\ell y-\ell x_0\right)+(1-a) \max \left\{p_\alpha(\mathcal{T} y-\ell y), p_\alpha\left(\mathcal{T} x_0-\ell x_0\right)\right\} \\
+& \leq a p_\alpha\left(\ell y-x_0\right)+(1-a) \max \left\{p_\alpha\left(\mathcal{T} y-x_0\right)+p_\alpha\left(\ell y-x_0\right)\right\} \\
+& =p_\alpha\left(\ell y-x_0\right)+(1-a) p_\alpha\left(\mathcal{T} y-x_0\right)
+\end{aligned}
+$$
+
+
+So, we have\\
+$$
+a p_\alpha\left(\mathcal{T} y-\mathcal{T} x_0\right) \leq p_\alpha\left(\ell y-x_0\right)
+$$
+
+
+Now, $\mathcal{T} y \in \mathcal{M}$ and $\ell y \in \mathscr{D}_a$, this implies that $\mathcal{T} y$ is also closest to $x_0$, so $\mathcal{T} y \in \mathscr{D}_a$. Consequently $\mathcal{T}$ and $\ell$ are self-maps on $\mathscr{D}_a$. The conditions of \hyperlink{muc3.4}{\textcolor{Darkblue}{Theorem 3.4}}$\left((\mathrm{i})\right.$-(iii)) are satisfied and, hence, there exists a $v \in \mathscr{D}_a$ such that $\mathcal{T} v=v=\ell \nu$. This completes the proof.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{2cm}
+\printbibliography
+
+
+\end{document}
